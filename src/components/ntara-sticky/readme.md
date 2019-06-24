@@ -10,6 +10,7 @@
 | Property | Attribute | Description | Type     | Default |
 | -------- | --------- | ----------- | -------- | ------- |
 | `offset` | `offset`  |             | `number` | `0`     |
+| `zIndex` | `z-index` |             | `number` | `1`     |
 
 
 ----------------------------------------------

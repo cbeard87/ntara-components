@@ -11,6 +11,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface NtaraSticky {
     'offset': number;
+    'zIndex': number;
   }
 }
 
@@ -30,6 +31,7 @@ declare global {
 declare namespace LocalJSX {
   interface NtaraSticky extends JSXBase.HTMLAttributes<HTMLNtaraStickyElement> {
     'offset'?: number;
+    'zIndex'?: number;
   }
 
   interface IntrinsicElements {

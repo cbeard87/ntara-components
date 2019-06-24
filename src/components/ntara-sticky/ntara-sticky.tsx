@@ -9,6 +9,7 @@ export class Sticky {
   @Element() el: HTMLElement;
 
   @Prop() offset = 0;
+  @Prop() zIndex = 1;
 
   private stickySupported(): boolean {
     const ua = window.navigator.userAgent;
@@ -38,7 +39,8 @@ export class Sticky {
     return (
       <Host
         style={{
-          top: `${this.offset}px`
+          top: `${this.offset}px`,
+          zIndex: `${this.zIndex}`
         }}
       >
         <slot />
