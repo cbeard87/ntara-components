@@ -10,7 +10,11 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface NtaraSticky {
+    'defaultPosition': string;
+    'fixedWidth': string;
     'offset': number;
+    'parent': HTMLElement;
+    'userAgent': string;
     'zIndex': number;
   }
 }
@@ -30,7 +34,11 @@ declare global {
 
 declare namespace LocalJSX {
   interface NtaraSticky extends JSXBase.HTMLAttributes<HTMLNtaraStickyElement> {
+    'defaultPosition'?: string;
+    'fixedWidth'?: string;
     'offset'?: number;
+    'parent'?: HTMLElement;
+    'userAgent'?: string;
     'zIndex'?: number;
   }
 
