@@ -1,5 +1,5 @@
 {
-  "name": "@ntara/ntara-components",
+  "name": "ntara-components",
   "version": "0.0.6",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
