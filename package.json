@@ -1,6 +1,6 @@
 {
-  "name": "ntara-components",
-  "version": "0.0.5",
+  "name": "@ntara/ntara-components",
+  "version": "0.0.6",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -28,5 +28,5 @@
     "@types/jest": "^24.0.15",
     "autoprefixer": "^9.6.0"
   },
-  "license": "MIT"
+  "license": "BSD-3-Clause-Attribution"
 }
