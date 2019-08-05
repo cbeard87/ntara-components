@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
@@ -9,11 +10,20 @@
   <script nomodule src="/build/ntara-components.js"></script>
 
 </head>
+
 <body>
-  <ntara-sticky
-    default-position="relative"
-    user-agent="Trident">
-    <div>Position Sticky!</div>
-  </ntara-sticky>
+  <div style="width: 45%; display: inline-block">
+    Left
+  </div>
+  <div style="width: 45%; display: inline-block">
+    Right
+    <ntara-modal lightbox="0.75" z-index="5">
+      <h1>Hello</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
+        odio iste ea commodi
+        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.</p>
+    </ntara-modal>
+  </div>
 </body>
+
 </html>

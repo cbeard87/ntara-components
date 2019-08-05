@@ -1,17 +1,17 @@
 {
-  "name": "ntara-components",
-  "version": "0.0.7",
+  "name": "@cbeard87/ntara-components",
+  "version": "0.1.0",
   "description": "Stencil Component Starter",
   "author": {
     "name": "Christopher Beard",
     "email": "beard@ntara.com",
-    "url": "https://git.ntara.dev/beard"
+    "url": "https://github.com/cbeard87"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.ntara.dev/Ntara/ntara-components.git"
+    "url": "https://github.com/cbeard87/ntara-components.git"
   },
-  "homepage": "https://git.ntara.dev/Ntara/ntara-components",
+  "homepage": "https://github.com/cbeard87/ntara-components",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
