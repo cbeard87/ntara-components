@@ -13,7 +13,6 @@ export namespace Components {
     'cornerRadius': string;
     'lightbox': string;
     'margin': string;
-    'onClose': any;
     'show': boolean;
     'showClose': boolean;
     'zIndex': string;
@@ -53,7 +52,6 @@ declare namespace LocalJSX {
     'cornerRadius'?: string;
     'lightbox'?: string;
     'margin'?: string;
-    'onClose'?: any;
     'show'?: boolean;
     'showClose'?: boolean;
     'zIndex'?: string;
