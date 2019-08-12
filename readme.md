@@ -15,7 +15,7 @@ Stencil components are just Web Components, so they work in any major framework 
 To contribute to the Ntara Component Library, clone this repo to a new directory:
 
 ```bash
-git clone https://github.com/cbeard87/ntara-components.git
+git clone https://git.ntara.dev/Ntara/ntara-components.git
 cd ntara-components
 ```
 
@@ -50,11 +50,11 @@ All of the Ntara generated web components use the prefix `ntara`.
 
 ### Script tag
 
-- [Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- Put a script tag similar to this `<script src='https://unpkg.com/@cbeard87/ntara-components@0.0.5/dist/ntara-components.js'></script>` in the head of your index.html
+- [Publish to Ntara NPM Registry](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+- Put a script tag similar to this `<script src='https://cdn.ntara.dev/@ntara/ntara-components@0.0.5/dist/ntara-components.js'></script>` in the head of your index.html
 - Then you can use the elements anywhere in your template, JSX, html, etc.
 
 ### Node Modules
-- Run `npm install @cbeard87/ntara-components --save`
-- Put a script tag similar to this `<script src='node_modules/@cbeard87/ntara-components/dist/ntara-components.js'></script>` in the head of your index.html or master page.
+- Run `npm install @ntara/ntara-components --save`
+- Put a script tag similar to this `<script src='node_modules/@ntara/ntara-components/dist/ntara-components.js'></script>` in the head of your index.html or master page.
 - Then you can use the element anywhere in your template, JSX, html, etc.

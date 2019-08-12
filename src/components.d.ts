@@ -9,6 +9,15 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface NtaraModal {
+    'cornerRadius': string;
+    'lightbox': string;
+    'margin': string;
+    'onClose': any;
+    'show': boolean;
+    'showClose': boolean;
+    'zIndex': string;
+  }
   interface NtaraSticky {
     'defaultPosition': string;
     'fixedWidth': string;
@@ -22,17 +31,33 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLNtaraModalElement extends Components.NtaraModal, HTMLStencilElement {}
+  var HTMLNtaraModalElement: {
+    prototype: HTMLNtaraModalElement;
+    new (): HTMLNtaraModalElement;
+  };
+
   interface HTMLNtaraStickyElement extends Components.NtaraSticky, HTMLStencilElement {}
   var HTMLNtaraStickyElement: {
     prototype: HTMLNtaraStickyElement;
     new (): HTMLNtaraStickyElement;
   };
   interface HTMLElementTagNameMap {
+    'ntara-modal': HTMLNtaraModalElement;
     'ntara-sticky': HTMLNtaraStickyElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface NtaraModal extends JSXBase.HTMLAttributes<HTMLNtaraModalElement> {
+    'cornerRadius'?: string;
+    'lightbox'?: string;
+    'margin'?: string;
+    'onClose'?: any;
+    'show'?: boolean;
+    'showClose'?: boolean;
+    'zIndex'?: string;
+  }
   interface NtaraSticky extends JSXBase.HTMLAttributes<HTMLNtaraStickyElement> {
     'defaultPosition'?: string;
     'fixedWidth'?: string;
@@ -43,6 +68,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'ntara-modal': NtaraModal;
     'ntara-sticky': NtaraSticky;
   }
 }

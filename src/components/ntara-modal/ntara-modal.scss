@@ -1,0 +1,37 @@
+:host {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal {
+  min-width: 300px;
+  min-height: 200px;
+  background-color: white;
+  position: relative;
+
+  .modal-close {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    color: black;
+    border-radius: 13px;
+    right: -26px;
+    top: -26px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+
+    .icon-material {
+      font-size: 24px;
+    }
+  }
+}
+

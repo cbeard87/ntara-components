@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
@@ -9,22 +10,27 @@
   <script nomodule src="/build/ntara-components.js"></script>
 
 </head>
+
 <body>
-  <div style="height:500px"></div>
-  <ntara-sticky >
-    <div>Position Sticky!</div>
-  </ntara-sticky>
-  <div style="height:500px"></div>
-  <ntara-sticky>
-    <div>Position Sticky 2!</div>
-  </ntara-sticky>
-  <div style="height:500px"></div>
-  <ntara-sticky>
-    <div>Position Sticky 3!</div>
-  </ntara-sticky>
-  <div style="height:500px"></div>
-  <div style="height:500px"></div>
-  <div style="height:500px"></div>
-  <div style="height:500px"></div>
+  <div style="width: 45%; display: inline-block">
+    Left
+  </div>
+<div style="width: 45%; display: inline-block">
+  Right
+  <button onclick="document.querySelector('ntara-modal').show = true">Open</button>
+  <ntara-modal lightbox="0.75" z-index="5" show-close="false">
+    <h1>Hello</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
+      odio iste ea commodi
+      labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.</p>
+  </ntara-modal>
+</div>
+<script>
+  function closeModal()
+  {
+
+  }
+</script>
 </body>
+
 </html>
