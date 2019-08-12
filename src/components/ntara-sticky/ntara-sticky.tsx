@@ -23,16 +23,28 @@ export class Sticky {
     }
   }
 
+  private getOffsetHeight() {
+    let elements = this.parent.querySelectorAll(this.el.tagName);
+    let offset = 0;
+    let index = 0;
+    while (index < elements.length && elements[index] !== this.el) {
+      offset += elements[index].clientHeight;
+      index++;
+    }
+    return offset;
+  }
+
   private polyfillSticky() {
     let elTop = this.el.getBoundingClientRect().top;
     let elHeight = this.el.getBoundingClientRect().height;
     let elWidth = this.el.getBoundingClientRect().width;
     let lastScrollY = 0;
     let ticking = false;
+    let offset = this.offset === 0 ? this.getOffsetHeight() : this.offset;
 
     let clone = document.createElement('div');
     clone.style.cssText = `
-      height: ${elHeight + this.offset}px; width: ${elWidth}px; visibility: hidden; display: none;
+      height: ${elHeight + offset}px; width: ${elWidth}px; visibility: hidden; display: none;
     `;
     this.parent.insertBefore(clone, this.el);
 
@@ -84,7 +96,7 @@ export class Sticky {
     return (
       <Host
         style={{
-          top: `${this.offset}px`,
+          top: `${this.offset === 0 ? this.getOffsetHeight() : this.offset}px`,
           zIndex: `${this.zIndex}`
         }}
       >
