@@ -13,6 +13,7 @@
 | `lightbox`     | `lightbox`      |             | `string`  | `'0'`   |
 | `margin`       | `margin`        |             | `string`  | `'0px'` |
 | `show`         | `show`          |             | `boolean` | `false` |
+| `showClose`    | `show-close`    |             | `boolean` | `true`  |
 | `zIndex`       | `z-index`       |             | `string`  | `'1'`   |
 
 
