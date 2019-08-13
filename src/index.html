@@ -8,23 +8,49 @@
 
   <script type="module" src="/build/ntara-components.esm.js"></script>
   <script nomodule src="/build/ntara-components.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",
+      function () {
+        document.addEventListener("onModalClose", function (e) {
+          alert("A modal has been closed: " + e.target.id);
+        });
+        document.querySelector('#leftModal').addEventListener("onModalClose", function (e) {
+          alert("Left modal has been closed.");
+        });
+        document.querySelector('#rightModal').addEventListener("onModalClose", function (e) {
+          alert("Right modal has been closed.");
+        });
+      });
 
+  </script>
 </head>
 
 <body>
   <div style="width: 45%; display: inline-block">
     Left
+    <button onclick="document.querySelector('#leftModal').show = true">Open</button>
+    <ntara-modal id="leftModal" lightbox="0.75" z-index="5">
+      <h1>Hello from the Left</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
+        odio iste ea commodi
+        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.
+      </p>
+    </ntara-modal>
+
   </div>
-<div style="width: 45%; display: inline-block">
-  Right
-  <button onclick="document.querySelector('ntara-modal').show = true">Open</button>
-  <ntara-modal lightbox="0.75" z-index="5">
-    <h1>Hello</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
-      odio iste ea commodi
-      labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.</p>
-  </ntara-modal>
-</div>
+  <div style="width: 45%; display: inline-block">
+    Right
+    <button onclick="document.querySelector('#rightModal').show = true">Open</button>
+    <ntara-modal id="rightModal" lightbox="0.75" z-index="5">
+      <h1>Hello on the Right</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
+        odio iste ea commodi
+        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.
+      </p>
+    </ntara-modal>
+  </div>
 </body>
 
 </html>

@@ -52,6 +52,7 @@ declare namespace LocalJSX {
     'cornerRadius'?: string;
     'lightbox'?: string;
     'margin'?: string;
+    'onOnModalClose'?: (event: CustomEvent<any>) => void;
     'show'?: boolean;
     'showClose'?: boolean;
     'zIndex'?: string;
