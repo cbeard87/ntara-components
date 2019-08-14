@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ntara-modal',
@@ -14,6 +14,31 @@ export class Modal {
   @Prop() zIndex = '1';
   @Prop({ reflect: true }) showClose = true;
 
+  @Watch('show')
+  watchHandler(newValue: boolean) {
+    if (newValue) {
+      this.modalOpenedHandler();
+    } else {
+      this.modalClosedHandler();
+    }
+  }
+
+  @Event({ eventName: 'modal-opened' }) modalOpened: EventEmitter;
+  modalOpenedHandler() {
+    this.modalOpened.emit();
+  }
+
+  @Event({ eventName: 'modal-closed' }) modalClosed: EventEmitter;
+  modalClosedHandler() {
+    this.modalClosed.emit();
+  }
+
+  @Event({ eventName: 'close-clicked' }) closeClicked: EventEmitter;
+  closeClickedHandler() {
+    this.show = false;
+    this.closeClicked.emit();
+  }
+
   render() {
     return (
       <Host
@@ -27,11 +52,11 @@ export class Modal {
             margin: this.margin,
             borderRadius: `${this.cornerRadius}px`
           }}>
-          <div class="modal-close" onClick={() => { this.show = false }}
+          <div class="modal-close" onClick={() => this.closeClickedHandler()}
             style={{
               display: this.showClose ? 'flex' : 'none'
             }}>
-            <span class="icon-material">×</span>
+            <span>×</span>
           </div>
           <slot />
         </div>

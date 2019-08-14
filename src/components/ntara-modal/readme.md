@@ -13,7 +13,17 @@
 | `lightbox`     | `lightbox`      |             | `string`  | `'0'`   |
 | `margin`       | `margin`        |             | `string`  | `'0px'` |
 | `show`         | `show`          |             | `boolean` | `false` |
+| `showClose`    | `show-close`    |             | `boolean` | `true`  |
 | `zIndex`       | `z-index`       |             | `string`  | `'1'`   |
+
+
+## Events
+
+| Event           | Description | Type               |
+| --------------- | ----------- | ------------------ |
+| `close-clicked` |             | `CustomEvent<any>` |
+| `modal-closed`  |             | `CustomEvent<any>` |
+| `modal-opened`  |             | `CustomEvent<any>` |
 
 
 ----------------------------------------------
