@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Event, EventEmitter, Element } from '@stencil/core';
+import { Component, Prop, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'ntara-modal',
@@ -14,19 +14,6 @@ export class Modal {
   @Prop() zIndex = '1';
   @Prop({ reflect: true }) showClose = true;
 
-  @Element() el: HTMLElement;
-
-  @Event() onModalClose: EventEmitter;
-
-  fireOnModalClose(e) {
-    this.onModalClose.emit(e);
-  }
-
-    handleClick(e) {
-    this.show = false;
-    this.fireOnModalClose(e);
-  }
-
   render() {
     return (
       <Host
@@ -40,7 +27,7 @@ export class Modal {
             margin: this.margin,
             borderRadius: `${this.cornerRadius}px`
           }}>
-          <div class="modal-close" onClick={(e) => this.handleClick(e)}
+          <div class="modal-close" onClick={() => { this.show = false }}
             style={{
               display: this.showClose ? 'flex' : 'none'
             }}>
