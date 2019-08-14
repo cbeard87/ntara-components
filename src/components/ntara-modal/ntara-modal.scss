@@ -10,8 +10,6 @@
 }
 
 .modal {
-  min-width: 300px;
-  min-height: 200px;
   background-color: white;
   position: relative;
 
@@ -29,7 +27,7 @@
     flex-wrap: wrap;
     cursor: pointer;
 
-    .icon-material {
+    span {
       font-size: 24px;
     }
   }
