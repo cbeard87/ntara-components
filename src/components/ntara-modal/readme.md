@@ -17,6 +17,15 @@
 | `zIndex`       | `z-index`       |             | `string`  | `'1'`   |
 
 
+## Events
+
+| Event           | Description | Type               |
+| --------------- | ----------- | ------------------ |
+| `close-clicked` |             | `CustomEvent<any>` |
+| `modal-closed`  |             | `CustomEvent<any>` |
+| `modal-opened`  |             | `CustomEvent<any>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

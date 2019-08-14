@@ -9,22 +9,55 @@
   <script type="module" src="/build/ntara-components.esm.js"></script>
   <script nomodule src="/build/ntara-components.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 </head>
 
 <body>
   <div style="width: 45%; display: inline-block">
-    Left
+    Native Modal
+    <button onclick="document.querySelector('#nativeModal').show = true">Open</button>
+    <ntara-modal id="nativeModal" lightbox="0.75" z-index="5">
+      <h1>Hello</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
+        odio iste ea commodi
+        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.</p>
+    </ntara-modal>
+    <script>
+      const nativeModal = document.getElementById('nativeModal');
+
+      nativeModal.addEventListener('modal-closed', ev => console.log(ev.target.id, ev.type));
+      nativeModal.addEventListener('modal-opened', ev => console.log(ev.target.id, ev.type));
+      nativeModal.addEventListener('close-clicked', ev => console.log(ev.target.id, ev.type));
+    </script>
   </div>
-<div style="width: 45%; display: inline-block">
-  Right
-  <button onclick="document.querySelector('ntara-modal').show = true">Open</button>
-  <ntara-modal lightbox="0.75" z-index="5">
-    <h1>Hello</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
-      odio iste ea commodi
-      labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.</p>
-  </ntara-modal>
-</div>
+  <div id="app" style="width: 45%; display: inline-block">
+    Vue Modal
+    <button @click="showModal = true">Open</button>
+    <ntara-modal id="vueModal" :show="showModal" lightbox="0.75" z-index="5" @close-clicked="showModal = false"
+      @modal-opened="event => log(event.target.id, event.type)"
+      @modal-closed="event => log(event.target.id, event.type)">
+      <h1>Hello</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
+        odio iste ea commodi
+        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.</p>
+    </ntara-modal>
+  </div>
+  <script>
+    Vue.config.ignoredElements = ['ntara-modal'];
+
+    new Vue({
+      el: '#app',
+      data: {
+        showModal: false
+      },
+      methods: {
+        log(target, type) {
+          console.log(target, type);
+        }
+      }
+    })
+  </script>
 </body>
 
 </html>
