@@ -7,14 +7,12 @@
 
 ## Properties
 
-| Property          | Attribute          | Description | Type          | Default                      |
-| ----------------- | ------------------ | ----------- | ------------- | ---------------------------- |
-| `defaultPosition` | `default-position` |             | `string`      | `'static'`                   |
-| `fixedWidth`      | `fixed-width`      |             | `string`      | `'auto'`                     |
-| `offset`          | `offset`           |             | `number`      | `0`                          |
-| `parent`          | --                 |             | `HTMLElement` | `this.el.parentElement`      |
-| `userAgent`       | `user-agent`       |             | `string`      | `window.navigator.userAgent` |
-| `zIndex`          | `z-index`          |             | `number`      | `1`                          |
+| Property          | Attribute          | Description                                                                                                                                                         | Type          | Default                                           |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------- |
+| `offset`          | `offset`           | Defines the vertical position of the element relative to it's parent container.                                                                                     | `number`      | `0`                                               |
+| `parent`          | --                 | Sets the element's parent container. Assists in calculating offsets for multiple instances of <ntara-sticky>.                                                       | `HTMLElement` | `this.el.parentElement`                           |
+| `stickySupported` | `sticky-supported` | Detects the current browser's support for position: sticky. - Defaults to false if IE11 user agent is detected. - If unsupported, instantiates stickybits polyfill. | `boolean`     | `!~window.navigator.userAgent.indexOf('Trident')` |
+| `zIndex`          | `z-index`          | Sets the z-index value of the sticky element.                                                                                                                       | `number`      | `1`                                               |
 
 
 ----------------------------------------------

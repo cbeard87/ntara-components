@@ -37,5 +37,9 @@
     "@types/jest": "^24.0.15",
     "autoprefixer": "^9.6.0"
   },
-  "license": "BSD-3-Clause-Attribution"
+  "license": "BSD-3-Clause-Attribution",
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "stickybits": "^3.6.6"
+  }
 }

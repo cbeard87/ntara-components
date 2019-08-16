@@ -18,11 +18,21 @@ export namespace Components {
     'zIndex': string;
   }
   interface NtaraSticky {
-    'defaultPosition': string;
-    'fixedWidth': string;
+    /**
+    * Defines the vertical position of the element relative to it's parent container.
+    */
     'offset': number;
+    /**
+    * Sets the element's parent container. Assists in calculating offsets for multiple instances of <ntara-sticky>.
+    */
     'parent': HTMLElement;
-    'userAgent': string;
+    /**
+    * Detects the current browser's support for position: sticky. - Defaults to false if IE11 user agent is detected. - If unsupported, instantiates stickybits polyfill.
+    */
+    'stickySupported': boolean;
+    /**
+    * Sets the z-index value of the sticky element.
+    */
     'zIndex': number;
   }
 }
@@ -60,11 +70,21 @@ declare namespace LocalJSX {
     'zIndex'?: string;
   }
   interface NtaraSticky extends JSXBase.HTMLAttributes<HTMLNtaraStickyElement> {
-    'defaultPosition'?: string;
-    'fixedWidth'?: string;
+    /**
+    * Defines the vertical position of the element relative to it's parent container.
+    */
     'offset'?: number;
+    /**
+    * Sets the element's parent container. Assists in calculating offsets for multiple instances of <ntara-sticky>.
+    */
     'parent'?: HTMLElement;
-    'userAgent'?: string;
+    /**
+    * Detects the current browser's support for position: sticky. - Defaults to false if IE11 user agent is detected. - If unsupported, instantiates stickybits polyfill.
+    */
+    'stickySupported'?: boolean;
+    /**
+    * Sets the z-index value of the sticky element.
+    */
     'zIndex'?: number;
   }
 

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div style="width: 45%; display: inline-block">
+  <!-- <div style="width: 45%; display: inline-block">
     Native Modal
     <button onclick="document.querySelector('#nativeModal').show = true">Open</button>
     <ntara-modal id="nativeModal" lightbox="0.75" z-index="5">
@@ -57,7 +57,47 @@
         }
       }
     })
-  </script>
+  </script> -->
+  <style>
+    body {
+      width: 800px;
+      margin: 0 auto;
+      padding-bottom: 100vh;
+    }
+
+    section {
+      height: 50vh;
+      border: 1px solid black;
+      background-color: white;
+    }
+
+    .flex {
+      display: flex;
+      border: 1px solid black;
+    }
+  </style>
+  <main>
+    <section>
+      <ntara-sticky>
+        Section 1
+      </ntara-sticky>
+      <ntara-sticky>
+        Section 1 - 2
+      </ntara-sticky>
+    </section>
+    <section>
+      <ntara-sticky offset="20">
+        Section 2
+      </ntara-sticky>
+    </section>
+    <section>
+      <ntara-sticky offset="40" z-index="100">
+        <div class="flex">
+          Section 3
+        </div>
+      </ntara-sticky>
+    </section>
+  </main>
 </body>
 
 </html>
