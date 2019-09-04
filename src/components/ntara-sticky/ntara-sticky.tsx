@@ -1,5 +1,8 @@
 import { Component, Prop, Element, Host, h } from '@stencil/core';
 
+import stickybits from 'stickybits';
+import debounce from 'lodash.debounce';
+
 @Component({
   tag: 'ntara-sticky',
   styleUrl: 'ntara-sticky.scss',
@@ -8,14 +11,30 @@ import { Component, Prop, Element, Host, h } from '@stencil/core';
 export class Sticky {
   @Element() el: HTMLElement;
 
-  @Prop() fixedWidth = 'auto';
-  @Prop() defaultPosition = 'static';
-  @Prop() offset = 0;
-  @Prop() parent = this.el.parentElement;
-  @Prop() userAgent = window.navigator.userAgent;
-  @Prop() zIndex = 1;
+  /**
+   * Defines the vertical position of the element
+   * relative to it's parent container.
+   */
+  @Prop() offset: number = 0;
 
-  stickySupported = !~this.userAgent.indexOf('Trident');
+  /**
+   * Sets the element's parent container.
+   * Assists in calculating offsets for multiple
+   * instances of <ntara-sticky>.
+   */
+  @Prop() parent: HTMLElement = this.el.parentElement;
+
+  /**
+   * Detects the current browser's support for position: sticky.
+   * - Defaults to false if IE11 user agent is detected.
+   * - If unsupported, instantiates stickybits polyfill.
+   */
+  @Prop() stickySupported: boolean = !~window.navigator.userAgent.indexOf('Trident');
+
+  /**
+   * Sets the z-index value of the sticky element.
+   */
+  @Prop() zIndex: number = 1;
 
   componentDidLoad() {
     if (!this.stickySupported) {
@@ -35,61 +54,14 @@ export class Sticky {
   }
 
   private polyfillSticky() {
-    let elTop = this.el.getBoundingClientRect().top;
-    let elHeight = this.el.getBoundingClientRect().height;
-    let elWidth = this.el.getBoundingClientRect().width;
-    let lastScrollY = 0;
-    let ticking = false;
-    let offset = this.offset === 0 ? this.getOffsetHeight() : this.offset;
+    this.el.style.width = `${this.el.offsetWidth}px`;
+    this.parent.style.position = 'relative';
 
-    let clone = document.createElement('div');
-    clone.style.cssText = `
-      height: ${elHeight + offset}px; width: ${elWidth}px; visibility: hidden; display: none;
-    `;
-    this.parent.insertBefore(clone, this.el);
+    const stickyInstance = stickybits(this.el, {
+      stickyBitStickyOffset: this.offset === 0 ? this.getOffsetHeight() : this.offset
+    });
 
-    // Set default position on component load.
-    this.el.style.position = this.defaultPosition;
-
-    const setFixed = () => {
-      if (lastScrollY >= elTop) {
-        this.el.style.width = this.fixedWidth;
-        this.el.style.position = 'fixed';
-        clone.style.display = 'block';
-      } else {
-        this.el.style.width = 'auto';
-        this.el.style.position = this.defaultPosition;
-        clone.style.display = 'none';
-      }
-    }
-
-    const update = () => {
-      setFixed();
-      ticking = false;
-    }
-
-    const requestTick = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
-      }
-    }
-
-    const onScroll = () => {
-      lastScrollY = window.pageYOffset;
-      requestTick();
-    }
-
-    const onResize = () => {
-      setTimeout(() => {
-        elTop = this.el.getBoundingClientRect().top;
-        lastScrollY = window.pageYOffset;
-        setFixed();
-      }, 500);
-    }
-
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', debounce(() => stickyInstance.update(), 250));
   }
 
   render() {
