@@ -10,6 +10,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface NtaraModal {
+    'closeOutside': boolean;
     'cornerRadius': string;
     'lightbox': string;
     'margin': string;
@@ -59,6 +60,7 @@ declare global {
 
 declare namespace LocalJSX {
   interface NtaraModal extends JSXBase.HTMLAttributes<HTMLNtaraModalElement> {
+    'closeOutside'?: boolean;
     'cornerRadius'?: string;
     'lightbox'?: string;
     'margin'?: string;
