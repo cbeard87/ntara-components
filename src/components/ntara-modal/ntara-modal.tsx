@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Event, EventEmitter, Watch } from '@stencil/core';
+import { Component, Prop, h, Element, Host, Event, EventEmitter, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ntara-modal',
@@ -6,6 +6,7 @@ import { Component, Prop, h, Host, Event, EventEmitter, Watch } from '@stencil/c
   scoped: true
 })
 export class Modal {
+  @Element() el: HTMLElement;
 
   @Prop() lightbox = '0';
   @Prop({ reflect: true, mutable: true }) show = false;
@@ -13,6 +14,7 @@ export class Modal {
   @Prop() cornerRadius = '0';
   @Prop() zIndex = '1';
   @Prop({ reflect: true }) showClose = true;
+  @Prop({ reflect: true }) closeOutside = true;
 
   @Watch('show')
   watchHandler(newValue: boolean) {
@@ -42,18 +44,20 @@ export class Modal {
   render() {
     return (
       <Host
+        onClick={(event) => { if (this.closeOutside && event.target === this.el) this.closeClickedHandler(); } }
         style={{
           backgroundColor: `rgba(0, 0, 0, ${this.lightbox})`,
           display: this.show ? 'flex' : 'none',
           zIndex: this.zIndex
         }}>
         <div class="modal"
-          style={{
+             style={{
             margin: this.margin,
             borderRadius: `${this.cornerRadius}px`
           }}>
-          <div class="modal-close" onClick={() => this.closeClickedHandler()}
-            style={{
+          <div class="modal-close"
+               onClick={() => this.closeClickedHandler()}
+               style={{
               display: this.showClose ? 'flex' : 'none'
             }}>
             <span>×</span>
