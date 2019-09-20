@@ -9,6 +9,7 @@
 
 | Property       | Attribute       | Description | Type      | Default |
 | -------------- | --------------- | ----------- | --------- | ------- |
+| `closeOutside` | `close-outside` |             | `boolean` | `true`  |
 | `cornerRadius` | `corner-radius` |             | `string`  | `'0'`   |
 | `lightbox`     | `lightbox`      |             | `string`  | `'0'`   |
 | `margin`       | `margin`        |             | `string`  | `'0px'` |
