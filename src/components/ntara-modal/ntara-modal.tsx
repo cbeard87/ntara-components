@@ -13,7 +13,7 @@ export class Modal {
   @Prop() margin = '0px';
   @Prop() cornerRadius = '0';
   @Prop() zIndex = '1';
-  @Prop({ reflect: true }) showClose = true;
+  @Prop({ reflect: true }) customCloseButton = false;
   @Prop({ reflect: true }) closeOutside = true;
 
   @Watch('show')
@@ -44,24 +44,23 @@ export class Modal {
   render() {
     return (
       <Host
-        onClick={(event) => { if (this.closeOutside && event.target === this.el) this.closeClickedHandler(); } }
+        onClick={(event) => { if (this.closeOutside && event.target === this.el) this.closeClickedHandler(); }}
         style={{
           backgroundColor: `rgba(0, 0, 0, ${this.lightbox})`,
           display: this.show ? 'flex' : 'none',
           zIndex: this.zIndex
         }}>
         <div class="modal"
-             style={{
+          style={{
             margin: this.margin,
             borderRadius: `${this.cornerRadius}px`
           }}>
           <div class="modal-close"
-               onClick={() => this.closeClickedHandler()}
-               style={{
-              display: this.showClose ? 'flex' : 'none'
-            }}>
+             onClick={() => this.closeClickedHandler()}
+             style={{ display: !this.customCloseButton ? 'flex' : 'none' }}>
             <span>×</span>
           </div>
+          <slot name="custom-close-button" />
           <slot />
         </div>
       </Host>

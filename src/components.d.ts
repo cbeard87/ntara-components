@@ -12,10 +12,10 @@ export namespace Components {
   interface NtaraModal {
     'closeOutside': boolean;
     'cornerRadius': string;
+    'customCloseButton': boolean;
     'lightbox': string;
     'margin': string;
     'show': boolean;
-    'showClose': boolean;
     'zIndex': string;
   }
   interface NtaraSticky {
@@ -62,13 +62,13 @@ declare namespace LocalJSX {
   interface NtaraModal extends JSXBase.HTMLAttributes<HTMLNtaraModalElement> {
     'closeOutside'?: boolean;
     'cornerRadius'?: string;
+    'customCloseButton'?: boolean;
     'lightbox'?: string;
     'margin'?: string;
     'onClose-clicked'?: (event: CustomEvent<any>) => void;
     'onModal-closed'?: (event: CustomEvent<any>) => void;
     'onModal-opened'?: (event: CustomEvent<any>) => void;
     'show'?: boolean;
-    'showClose'?: boolean;
     'zIndex'?: string;
   }
   interface NtaraSticky extends JSXBase.HTMLAttributes<HTMLNtaraStickyElement> {

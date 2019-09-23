@@ -14,14 +14,18 @@
 </head>
 
 <body>
-   <div style="width: 45%; display: inline-block">
+  <div style="width: 45%; display: inline-block">
     Native Modal
     <button onclick="document.querySelector('#nativeModal').show = true">Open</button>
-    <ntara-modal id="nativeModal" lightbox="0.75" z-index="5" closeOutside="false">
+    <ntara-modal id="nativeModal" lightbox="0.75" z-index="5" close-outside="false" use-custom-button="true">
       <h1>Hello</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
-        odio iste ea commodi
-        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.</p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde odio iste ea commodi
+        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.
+      </p>
+      <div slot="close-button" class="flex modal-close sc-ntara-modal" onclick="document.querySelector('#nativeModal').show = false">
+        <span data-celebrus="the custom close button text">-</span>
+      </div>
     </ntara-modal>
     <script>
       const nativeModal = document.getElementById('nativeModal');
@@ -35,18 +39,20 @@
     Vue Modal
     <button @click="showModal = true">Open</button>
     <ntara-modal id="vueModal" :show="showModal" lightbox="0.75" z-index="5" @close-clicked="showModal = false"
-      @modal-opened="event => log(event.target.id, event.type)"
-      @modal-closed="event => log(event.target.id, event.type)">
+                 @modal-opened="event => log(event.target.id, event.type)"
+                 @modal-closed="event => log(event.target.id, event.type)">
       <h1>Hello</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque similique unde
         odio iste ea commodi
-        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.</p>
+        labore totam cupiditate illum tempore corporis nostrum hic, quae sequi facilis accusamus explicabo incidunt.
+      </p>
     </ntara-modal>
   </div>
   <script>
     Vue.config.ignoredElements = ['ntara-modal'];
 
-    new Vue({
+    var app = new Vue({
       el: '#app',
       data: {
         showModal: false
@@ -56,8 +62,8 @@
           console.log(target, type);
         }
       }
-    })
-  </script> 
+    });
+  </script>
   <style>
     body {
       width: 800px;
