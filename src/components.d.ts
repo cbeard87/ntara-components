@@ -59,7 +59,7 @@ declare global {
 }
 
 declare namespace LocalJSX {
-  interface NtaraModal extends JSXBase.HTMLAttributes<HTMLNtaraModalElement> {
+  interface NtaraModal {
     'closeOutside'?: boolean;
     'cornerRadius'?: string;
     'lightbox'?: string;
@@ -71,7 +71,7 @@ declare namespace LocalJSX {
     'showClose'?: boolean;
     'zIndex'?: string;
   }
-  interface NtaraSticky extends JSXBase.HTMLAttributes<HTMLNtaraStickyElement> {
+  interface NtaraSticky {
     /**
     * Defines the vertical position of the element relative to it's parent container.
     */
@@ -101,7 +101,10 @@ export { LocalJSX as JSX };
 
 declare module "@stencil/core" {
   export namespace JSX {
-    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+    interface IntrinsicElements {
+      'ntara-modal': LocalJSX.NtaraModal & JSXBase.HTMLAttributes<HTMLNtaraModalElement>;
+      'ntara-sticky': LocalJSX.NtaraSticky & JSXBase.HTMLAttributes<HTMLNtaraStickyElement>;
+    }
   }
 }
 
