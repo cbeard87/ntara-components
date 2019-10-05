@@ -7,15 +7,15 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type      | Default |
-| -------------- | --------------- | ----------- | --------- | ------- |
-| `closeOutside` | `close-outside` |             | `boolean` | `true`  |
-| `cornerRadius` | `corner-radius` |             | `string`  | `'0'`   |
-| `lightbox`     | `lightbox`      |             | `string`  | `'0'`   |
-| `margin`       | `margin`        |             | `string`  | `'0px'` |
-| `show`         | `show`          |             | `boolean` | `false` |
-| `showClose`    | `show-close`    |             | `boolean` | `true`  |
-| `zIndex`       | `z-index`       |             | `string`  | `'1'`   |
+| Property            | Attribute             | Description | Type      | Default |
+| ------------------- | --------------------- | ----------- | --------- | ------- |
+| `closeOutside`      | `close-outside`       |             | `boolean` | `true`  |
+| `cornerRadius`      | `corner-radius`       |             | `string`  | `'0'`   |
+| `customCloseButton` | `custom-close-button` |             | `boolean` | `false` |
+| `lightbox`          | `lightbox`            |             | `string`  | `'0'`   |
+| `margin`            | `margin`              |             | `string`  | `'0px'` |
+| `show`              | `show`                |             | `boolean` | `false` |
+| `zIndex`            | `z-index`             |             | `string`  | `'1'`   |
 
 
 ## Events
