@@ -25,21 +25,22 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
+    "generate": "stencil generate",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
-    "@stencil/core": "^1.0.7",
+    "@stencil/core": "^1.5.4",
     "@stencil/postcss": "^1.0.1",
     "@stencil/sass": "^1.0.0",
-    "@types/autoprefixer": "^9.5.0",
-    "@types/jest": "^24.0.15",
+    "@types/autoprefixer": "^9.6.1",
+    "@types/jest": "^24.0.18",
     "autoprefixer": "^9.6.0"
   },
   "license": "BSD-3-Clause-Attribution",
   "dependencies": {
     "lodash.debounce": "^4.0.8",
-    "stickybits": "^3.6.6"
+    "stickybits": "^3.6.7"
   }
 }
