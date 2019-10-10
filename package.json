@@ -26,13 +26,12 @@
   "scripts": {
     "build": "stencil build --docs",
     "generate": "stencil generate",
-    "start-local": "stencil build --dev --watch --serve",
-    "start-tunnel": "ssh -R ntara:80:localhost:3333 serveo.net",
+    "start": "stencil build --dev --watch --serve",
+    "start-proxy": "npx concurrently -k \"npm:start\" \"ssh -R ntara:80:localhost:3333 serveo.net\"",
     "test": "stencil test --spec --e2e",
     "test-e2e": "stencil test --e2e",
     "test-spec": "stencil test --spec",
     "test-watch": "stencil test --spec --e2e --watchAll",
-    "start": "npx concurrently -k npm:start-*",
     "preversion": "npm run test-spec",
     "version": "npm run build && git add --all",
     "postversion": "git push && git push --tags"
