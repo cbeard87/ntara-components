@@ -26,9 +26,11 @@
   "scripts": {
     "build": "stencil build --docs",
     "generate": "stencil generate",
-    "start": "stencil build --dev --watch --serve",
+    "start-local": "stencil build --dev --watch --serve",
+    "start-tunnel": "ssh -R ntara:80:localhost:3333 serveo.net",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "start": "npx concurrently -k npm:start-*"
   },
   "devDependencies": {
     "@stencil/core": "^1.5.4",
